@@ -1,0 +1,18 @@
+body{
+    /* background-image: url("https://www.analyticsinsight.net/wp-content/uploads/2020/04/Covid-19-and-X-Ray.jpg"); */
+    background-image: url("https://i1.wp.com/sourceray.com/wp-content/uploads/2020/03/Portable-x-ray-for-coronavirus.jpg?fit=1001%2C524&ssl=1");
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.jumbotron{
+    margin-top: 6rem;
+    background-color: rgba(0, 0, 50, 0.4);
+    color: whitesmoke;
+}
+
+.titleColor{
+color: whitesmoke;
+background-color: rgba(0, 0, 50, 0.2);;
+}
