@@ -14,6 +14,9 @@
 
 
 <body>
+
+  {% if ospf %}
+  <div class="body-index">
   <div class="titleColor">
     <h1 class="text-center">Covid Detection Using Chest X-rays</h1>
   </div>
@@ -22,7 +25,7 @@
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
 
-      <form action="/patient" method="POST" enctype="multipart/form-data">
+      <form action="/" method="POST" enctype="multipart/form-data">
         <label for="fname">Patient Name:</label>
         <input type="text" class="form-control" aria-label="Default"  id="name" name="name"><br />
         <label for="xray">Input Patient X-ray:</label><br />
@@ -52,6 +55,61 @@
     }
   </script>
 
+</div>
+{% endif %}
+
+
+{% if ospf == 0 %}
+<div class="prediction">
+<a  onmouseover = "gen_text()" onclick="get_pdf()" onmouseleave = "gen_text()"><h1 id = "demo"  class="text-center my-3 py-2 border border-secondary">Patient Report of {{n}}</h1></a>
+
+<div class="container">
+<h2 class = "my-2">
+  Given X-ray:
+</h2>
+<img class = "my-2" src="{{xray}}" alt=" {{n}} xray">
+
+<div class="jumbotron jumbotron-fluid my-2 px-2">
+
+    <h2>Covid Detection Result:</h2>
+
+    <h2 class="my-2">
+      {{res[0]}}
+    </h2>
+    <h2 class="my-2">
+      {{res[1]}}
+    </h2>
+    <h2 class="my-2">
+      {{res[2]}}
+    </h2>
+  </div>
+  
+</div>
+
+
+<script>
+var x = document.getElementById("demo");
+const t = x.innerHTML
+function gen_text(){
+  var x = document.getElementById("demo");
+  const y = t
+  if (x.innerHTML === "Click to download patient Report") {
+  x.innerHTML = y;
+} else {
+  x.innerHTML = "Click to download patient Report";
+}
+  
+}
+
+function get_pdf(){
+  var x = document.getElementById("demo");
+  x.innerHTML = t;
+  window.print();
+  alert("pdf downloaded");
+}
+</script>
+</div>
+{% endif %}
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
