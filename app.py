@@ -29,7 +29,7 @@ def patient():
         print(url)
         absolute_url =  os.path.abspath(url)
         res_list = covid_detection_model.xray_test(absolute_url)
-    return render_template("patient.html",n = name,  xray = url, res = res_list)
+    return render_template("patient/patient.html",n = name,  xray = url, res = res_list)
 
 if __name__ == "__main__":
     app.run()
