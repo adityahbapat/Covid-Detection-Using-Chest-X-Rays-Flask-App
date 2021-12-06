@@ -153,7 +153,7 @@ def fnc_cnn():
   # In[19]:
 
 
-  hist = model.fit(train, steps_per_epoch= 10, epochs= 30, validation_data= valid , validation_steps= 10, callbacks=[es,mc])
+  # hist = model.fit(train, steps_per_epoch= 10, epochs= 30, validation_data= valid , validation_steps= 10, callbacks=[es,mc])
 
 
   # In[20]:
