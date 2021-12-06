@@ -12,48 +12,48 @@ import glob
 import matplotlib.pyplot as plt
 
 
-# In[2]:
+# # In[2]:
 
 
-covid_imgs = pd.read_excel("C:\\Users\\Aditya\\Downloads\\Covid_detection_CNN\\COVID-19_Radiography_Dataset\\COVID.metadata.xlsx")
+# covid_imgs = pd.read_excel("C:\\Users\\Aditya\\Downloads\\Covid_detection_CNN\\COVID-19_Radiography_Dataset\\COVID.metadata.xlsx")
 
 
-# In[3]:
+# # In[3]:
 
 
-opacity_images = pd.read_excel("C:\\Users\\Aditya\\Downloads\\Covid_detection_CNN\\COVID-19_Radiography_Dataset\\Lung_Opacity.metadata.xlsx")
+# opacity_images = pd.read_excel("C:\\Users\\Aditya\\Downloads\\Covid_detection_CNN\\COVID-19_Radiography_Dataset\\Lung_Opacity.metadata.xlsx")
 
 
-# In[4]:
+# # In[4]:
 
 
-normal_images = pd.read_excel("C:\\Users\\Aditya\\Downloads\\Covid_detection_CNN\\COVID-19_Radiography_Dataset\\Normal.metadata.xlsx")
+# normal_images = pd.read_excel("C:\\Users\\Aditya\\Downloads\\Covid_detection_CNN\\COVID-19_Radiography_Dataset\\Normal.metadata.xlsx")
 
 
-# In[5]:
+# # In[5]:
 
 
-pneumonia_images = pd.read_excel("C:\\Users\\Aditya\\Downloads\\Covid_detection_CNN\\COVID-19_Radiography_Dataset\\Viral Pneumonia.metadata.xlsx")
+# pneumonia_images = pd.read_excel("C:\\Users\\Aditya\\Downloads\\Covid_detection_CNN\\COVID-19_Radiography_Dataset\\Viral Pneumonia.metadata.xlsx")
 
 
-# In[6]:
+# # In[6]:
 
 
-ROOT_DIR = "C:\\Users\\Aditya\\Downloads\\Covid_detection_CNN\\COVID-19_Radiography_Dataset\\"
-imgs = ['COVID','Lung_Opacity','Normal','Viral Pneumonia']
+# ROOT_DIR = "C:\\Users\\Aditya\\Downloads\\Covid_detection_CNN\\COVID-19_Radiography_Dataset\\"
+# imgs = ['COVID','Lung_Opacity','Normal','Viral Pneumonia']
 
-NEW_DIR = "C:\\Users\\Aditya\\Downloads\\Covid_detection_CNN\\content\\all_images\\"
-
-
-# In[7]:
+# NEW_DIR = "C:\\Users\\Aditya\\Downloads\\Covid_detection_CNN\\content\\all_images\\"
 
 
-train_path  = "C:\\Users\\Aditya\\Downloads\\Covid_detection_CNN\\content\\all_images\\train_test_split\\train"
-valid_path  = "C:\\Users\\Aditya\\Downloads\\Covid_detection_CNN\\content\\all_images\\train_test_split\\validation\\"
-test_path   = "C:\\Users\\Aditya\\Downloads\\Covid_detection_CNN\\content\\all_images\\train_test_split\\test\\"
+# # In[7]:
 
 
-# In[8]:
+# train_path  = "C:\\Users\\Aditya\\Downloads\\Covid_detection_CNN\\content\\all_images\\train_test_split\\train"
+# valid_path  = "C:\\Users\\Aditya\\Downloads\\Covid_detection_CNN\\content\\all_images\\train_test_split\\validation\\"
+# test_path   = "C:\\Users\\Aditya\\Downloads\\Covid_detection_CNN\\content\\all_images\\train_test_split\\test\\"
+
+
+# # In[8]:
 
 
 
@@ -67,34 +67,34 @@ from tensorflow.keras.layers import Dense, MaxPool2D, Conv2D
 # In[9]:
 
 
-train_data_gen = ImageDataGenerator(preprocessing_function= preprocess_input,
-                                    zoom_range= 0.2,
-                                    horizontal_flip= True,
-                                    shear_range= 0.2,
+# train_data_gen = ImageDataGenerator(preprocessing_function= preprocess_input,
+#                                     zoom_range= 0.2,
+#                                     horizontal_flip= True,
+#                                     shear_range= 0.2,
 
-                                    )
+#                                     )
 
-train = train_data_gen.flow_from_directory(directory= train_path,
-                                          target_size=(224,224))
-
-
-# In[10]:
+# train = train_data_gen.flow_from_directory(directory= train_path,
+#                                           target_size=(224,224))
 
 
-validation_data_gen = ImageDataGenerator(preprocessing_function= preprocess_input  )
-
-valid = validation_data_gen.flow_from_directory(directory= valid_path,
-                                                target_size=(224,224))
+# # In[10]:
 
 
-# In[11]:
+# validation_data_gen = ImageDataGenerator(preprocessing_function= preprocess_input  )
+
+# valid = validation_data_gen.flow_from_directory(directory= valid_path,
+#                                                 target_size=(224,224))
 
 
-test_data_gen = ImageDataGenerator(preprocessing_function= preprocess_input )
+# # In[11]:
 
-test = train_data_gen.flow_from_directory(directory= test_path ,
-                                          target_size=(224,224),
-                                          shuffle= False)
+
+# test_data_gen = ImageDataGenerator(preprocessing_function= preprocess_input )
+
+# test = train_data_gen.flow_from_directory(directory= test_path ,
+#                                           target_size=(224,224),
+#                                           shuffle= False)
 
 
 # In[12]:
@@ -227,10 +227,3 @@ def xray_test(path):
 # path = "C:\\Users\\Aditya\\Downloads\\Covid_detection_CNN\\content\\all_images\\COVID-1031.png"
 
 #predictions: path:- provide any image from google or provide image from all image folder
-
-
-# to display the image
-
-
-
-# In[ ]:
