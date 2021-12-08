@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, url_for, redirect
 from werkzeug.utils import secure_filename
 import covid_detection_model
 
+# https://covid-setu-spit.herokuapp.com/ heroku deployed
 root_folder = os.path.abspath(os.path.dirname(__file__))
 print(root_folder)
 UPLOAD_FOLDER_temp = os.path.join(root_folder, "static")
@@ -14,6 +15,9 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route("/")
 def index():
+    dir = UPLOAD_FOLDER
+    for f in os.listdir(dir):
+        os.remove(os.path.join(dir, f))
     return render_template("index.html",ospf = 1)
 
 @app.route("/", methods = ['POST'])
