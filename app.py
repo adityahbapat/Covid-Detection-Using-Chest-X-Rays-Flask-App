@@ -5,7 +5,8 @@ import covid_detection_model
 
 root_folder = os.path.abspath(os.path.dirname(__file__))
 print(root_folder)
-UPLOAD_FOLDER = os.path.join(root_folder, "static\\uploads\\")
+UPLOAD_FOLDER_temp = os.path.join(root_folder, "static")
+UPLOAD_FOLDER = os.path.join(UPLOAD_FOLDER_temp,"uploads")
 print(UPLOAD_FOLDER)
 app = Flask(__name__)
 
@@ -24,10 +25,12 @@ def patient():
         print("\n")
         filename = secure_filename(xray.filename)
         xray.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        url = os.path.join('static\\uploads', filename)
+        url2 = os.path.join("static", "uploads")
+        url = os.path.join(url2, filename)
         # url = os.path.abspath(url)
         print(url)
         absolute_url =  os.path.abspath(url)
+        
         res_list = covid_detection_model.xray_test(absolute_url)
     return render_template("index.html",ospf = 0,n = name,  xray = url, res = res_list)
 
